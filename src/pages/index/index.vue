@@ -1,8 +1,14 @@
 <template>
   <div @click="clickHandle">
-    <i-notice-bar icon="systemprompt" loop>
-    2019年推文讲坛正式上线，望广大用户大力支持！
+    <i-notice-bar v-if="show === true" icon="systemprompt" loop>
+    {{year}}推文讲坛正式上线，望广大用户大力支持！
     </i-notice-bar>
+    
+    <i-grid i-class="no-border">
+      <i-grid-item i-class="no-border" v-for="item in items" :key="item">
+        {{item}}
+      </i-grid-item>
+    </i-grid>
   <i-grid i-class="no-border">
     <i-grid-item i-class="no-border">
         <i-grid-icon>
@@ -85,6 +91,9 @@ import card from '@/components/card'
 export default {
   data () {
     return {
+      show: false,
+      year: '2019年4月3号',
+      items: ['科技', '法律', '自然', '心理', '展览', '人性'],
       motto: 'Hello miniprograme',
       userInfo: {
         nickName: 'mpvue',
