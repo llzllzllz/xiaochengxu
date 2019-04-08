@@ -50,35 +50,10 @@
     </i-grid-item>
  </i-grid>
  <i-panel title="论坛列表">
-      <view i-class="top-padding">
-      <i-card title="天涯科技论坛" extra="核心科技" i-class="top-padding" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-        <view slot="content">令你眼花缭乱的技术</view>
-        <view slot="footer">火星东部1-01</view>
-      </i-card>
-      <view i-class="top-padding"></view>
-      <i-card title="识知法律论坛" i-class="top-padding" extra="最新法律修订" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-        <view slot="content">更新及时</view>
-        <view slot="footer">火星东部2-01</view>
-      </i-card>
-      <view i-class="top-padding"></view>
-      <i-card title="自然科学讲坛" i-class="top-padding" extra="探索宇宙" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-        <view slot="content">令人恍然大悟</view>
-        <view slot="footer">火星西部1-01</view>
-      </i-card>
-      <view i-class="top-padding"></view>
-      <i-card title="人性之美讲坛" i-class="top-padding" extra="揭露人性" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-        <view slot="content">人性复杂而又简单</view>
-        <view slot="footer">火星西部3-01</view>
-      </i-card>
-      <view i-class="top-padding"></view>
-      <i-card title="战略决策讲坛" i-class="top-padding" extra="一个选择改变现在" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-        <view slot="content">学有所得</view>
-        <view slot="footer">火星北部4-01</view>
-      </i-card>
-      <view i-class="top-padding"></view>
-      <i-card title="心理讲坛" i-class="top-padding" extra="形容你的现在" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-        <view slot="content">爱上心理学</view>
-        <view slot="footer">火星北部5-01</view>
+      <view i-class="top-padding" v-for="item in shops" :key="item">
+      <i-card :title="item.name" :extra="item.introduction" i-class="top-padding" thumb="cloud://llz-a9aaae.6c6c-llz-a9aaae/招牌设计 (1).png">
+        <view slot="content">{{item.type}}</view>
+        <view slot="footer">{{item.address}}</view>
       </i-card>
     </view>
     </i-panel>
@@ -91,6 +66,7 @@ import card from '@/components/card'
 export default {
   data () {
     return {
+      shops: [],
       show: false,
       year: '2019年4月3号',
       items: ['科技', '法律', '自然', '心理', '展览', '人性'],
@@ -122,7 +98,13 @@ export default {
   },
 
   created () {
-    // let app = getApp()
+    const db = wx.cloud.database({ env: 'llz-a9aaae' })
+    db.collection('shop').get().then(
+      res => {
+        console.log(res.data)
+        this.shops = res.data
+      }
+    )
   }
 }
 </script>
