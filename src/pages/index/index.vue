@@ -101,8 +101,13 @@ export default {
     const db = wx.cloud.database({ env: 'llz-a9aaae' })
     db.collection('shop').get().then(
       res => {
-        console.log(res.data)
         this.shops = res.data
+      }
+    )
+    //  cloud function
+    wx.cloud.callFunction({ name: 'llz' }).then(
+      res => {
+        console.log(res)
       }
     )
   }
@@ -114,7 +119,7 @@ div >>> .no-border {
   border-width: 0pt;
 }
 div >>> .top-padding {
-  padding-top:30pt;
+  padding-top:10pt;
 }
 .userinfo {
   display: flex;
