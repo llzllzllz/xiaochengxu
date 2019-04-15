@@ -1,16 +1,19 @@
 <template>
-  <div>
-  <i-tabs :current="current_scroll" scroll @change="handleChangeScroll">
-    <i-tab key="tab1" title="选项1"></i-tab>
-    <i-tab key="tab2" title="选项2"></i-tab>
-    <i-tab key="tab3" title="选项3"></i-tab>
-    <i-tab key="tab4" title="选项4"></i-tab>
-    <i-tab key="tab5" title="选项5"></i-tab>
-    <i-tab key="tab6" title="选项6"></i-tab>
-    <i-tab key="tab7" title="选项7"></i-tab>
-    <i-tab key="tab8" title="选项8"></i-tab>
-    <i-tab key="tab9" title="选项9"></i-tab>
-  </i-tabs>
+  <div style="width:100%;height: 100%;">
+   <map
+      id="map"
+      longitude="114.336"
+      latitude="30.5838"
+      scale="16"
+      :controls="controls"
+      @controltap="controltap($event)"
+      :markers="markers"
+      @markertap="markertap($event)"
+      :polyline="polyline"
+      @regionchange="regionchange($event)"
+      show-location
+      style="width: 100%; height: 100%;"
+  ></map>
   </div>
 </template>
 
@@ -24,36 +27,50 @@ export default {
 
   data () {
     return {
-      current_scroll: 'tab1',
-      motto: 'Hello miniprograme',
-      userInfo: {
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png'
-      }
+      markers: [{
+        iconPath: '/static/images/marker.png',
+        id: 0,
+        latitude: 30.5838,
+        longitude: 114.336,
+        width: 50,
+        height: 50
+      }],
+      polyline: [{
+        points: [{
+        longitude: 114.336,
+        latitude: 30.5838
+      }, {
+        longitude: 114.341175,
+        latitude: 30.584859
+      }],
+      color: '#FF0000DD',
+      width: 2,
+      dottedLine: true
+    }],
+    controls: [{
+      id: 1,
+      iconPath: '/static/images/location.png',
+      position: {
+        left: 0,
+        top: 300 - 50,
+        width: 50,
+        height: 50
+      },
+      clickable: true
+    }]
     }
   },
 
   methods: {
-    bindViewTap () {
-      const url = '../logs/main'
-      if (mpvuePlatform === 'wx') {
-        mpvue.switchTab({ url })
-      } else {
-        mpvue.navigateTo({ url })
-      }
-    },
-    handleChange ({ detail }) {
-      this.setData({
-        current: detail.key
-      })
-    },
-    handleChangeScroll (event) {
-      this.current_scroll = event.mp.detail.key
-    },
-    clickHandle (ev) {
-      console.log('clickHandle:', ev)
-      // throw {message: 'custom test'}
-    }
+  regionchange(event) {
+    console.log(event)
+  },
+  markertap(event) {
+    console.log(event)
+  },
+  controltap(event) {
+    console.log(event)
+  }
   },
 
   created () {
@@ -62,5 +79,5 @@ export default {
 </script>
 
 <style>
-
+body,html{height:100%}
 </style>
