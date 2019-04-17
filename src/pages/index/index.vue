@@ -98,6 +98,10 @@ export default {
   },
 
   created () {
+    this.$http.get('http://s24.027365.net/', '').then((res)=>{
+        console.log('res', res)
+      }).catch(err=>{
+    })
     const db = wx.cloud.database({ env: 'llz-a9aaae' })
     db.collection('shop').get().then(
       res => {
