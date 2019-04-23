@@ -1,4 +1,5 @@
 {
+    "navigationBarTitleText": "Discuss",
     "usingComponents": {
         "i-button": "../../../static/dist/button/index",
         "i-notice-bar": "../../../static/dist/notice-bar/index",

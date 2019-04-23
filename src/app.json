@@ -3,6 +3,7 @@
     "pages/index/main",
     "pages/logs/main",
     "pages/counter/main",
+    "pages/count/main",
     "pages/mine/main",
     "pages/map/main"
   ],

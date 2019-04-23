@@ -1,6 +1,6 @@
 <template>
   <div @click="clickHandle">
-    <i-notice-bar v-if="show === true" icon="systemprompt" loop>
+    <i-notice-bar color="#5cadff" v-if="show === false" icon="systemprompt" closable loop>
     {{year}}推文讲坛正式上线，望广大用户大力支持！
     </i-notice-bar>
     
@@ -40,7 +40,7 @@
         <i-grid-icon>
             <image src="/static/grid/5.png" />
         </i-grid-icon>
-        <i-grid-label>战略</i-grid-label>
+        <i-grid-label>环境</i-grid-label>
     </i-grid-item>
     <i-grid-item i-class="no-border">
         <i-grid-icon>
@@ -49,9 +49,12 @@
         <i-grid-label>心理</i-grid-label>
     </i-grid-item>
  </i-grid>
+ <navigator url='/pages/count/main' open-type="navigate" hover-class='nav-hover' class='nav-default'>
+  <i-button type="info" long="true">跳转</i-button>
+ </navigator>
  <i-panel title="论坛列表">
       <view i-class="top-padding" v-for="item in shops" :key="item">
-      <i-card :title="item.name" :extra="item.introduction" i-class="top-padding" thumb="cloud://llz-a9aaae.6c6c-llz-a9aaae/招牌设计 (1).png">
+      <i-card :title="item.name" :extra="item.introduction" i-class="top-padding" thumb="/static/grid/2.png" full>
         <view slot="content">{{item.type}}</view>
         <view slot="footer">{{item.address}}</view>
       </i-card>
@@ -69,19 +72,14 @@ export default {
       shops: [],
       show: false,
       year: '2019年4月3号',
-      items: ['科技', '法律', '自然', '心理', '展览', '人性'],
-      motto: 'Hello miniprograme',
-      userInfo: {
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png'
-      }
+      items: ['科技', '法律', '自然', '心理', '环境', '人性']
     }
   },
 
   components: {
     card
   },
-
+  
   methods: {
     bindViewTap () {
       const url = '../logs/main'
@@ -121,6 +119,7 @@ export default {
 <style scoped>
 div >>> .no-border {
   border-width: 0pt;
+  color:chartreuse;
 }
 div >>> .top-padding {
   padding-top:10pt;
@@ -174,5 +173,13 @@ div >>> .top-padding {
   width:4.5rem;
   height:1rem;
   background-color:green;
+}
+
+.nav-hover{
+  color:red;
+}
+
+.nav-default{
+  color: #aaa
 }
 </style>
