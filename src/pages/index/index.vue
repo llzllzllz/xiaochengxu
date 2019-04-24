@@ -9,52 +9,29 @@
         {{item}}
       </i-grid-item>
     </i-grid>
+
   <i-grid i-class="no-border">
-    <i-grid-item i-class="no-border">
+    <i-grid-item i-class="no-border" v-for="item in images1" :key="item" @click="goList(item.url)">
         <i-grid-icon>
-            <image src="/static/grid/1.png" />
+            <image :src="item.add" />
         </i-grid-icon>
-        <i-grid-label>科技</i-grid-label>
-    </i-grid-item>
-    <i-grid-item i-class="no-border">
-        <i-grid-icon>
-            <image src="/static/grid/2.png" />
-        </i-grid-icon>
-        <i-grid-label>法律</i-grid-label>
-    </i-grid-item>
-    <i-grid-item i-class="no-border">
-        <i-grid-icon>
-            <image src="/static/grid/3.png" />
-        </i-grid-icon>
-        <i-grid-label>自然</i-grid-label>
+        <i-grid-label>{{item.type}}</i-grid-label>
     </i-grid-item>
   </i-grid>
   <i-grid i-class="no-border">
-    <i-grid-item i-class="no-border">
+     <i-grid-item i-class="no-border" v-for="item in images2" :key="item" @click="goList(item.url)">
         <i-grid-icon>
-            <image src="/static/grid/4.png" />
+            <image :src="item.add" />
         </i-grid-icon>
-        <i-grid-label>人性</i-grid-label>
-    </i-grid-item>
-    <i-grid-item i-class="no-border">
-        <i-grid-icon>
-            <image src="/static/grid/5.png" />
-        </i-grid-icon>
-        <i-grid-label>环境</i-grid-label>
-    </i-grid-item>
-    <i-grid-item i-class="no-border">
-        <i-grid-icon>
-            <image src="/static/grid/6.png" />
-        </i-grid-icon>
-        <i-grid-label>心理</i-grid-label>
-    </i-grid-item>
- </i-grid>
+        <i-grid-label>{{item.type}}</i-grid-label>
+     </i-grid-item>
+  </i-grid>
  <navigator url='/pages/count/main' open-type="navigate" hover-class='nav-hover' class='nav-default'>
-  <i-button type="info" long="true">跳转</i-button>
+  <i-button type="info" long="true">签到学习</i-button>
  </navigator>
  <i-panel title="论坛列表">
       <view i-class="top-padding" v-for="item in shops" :key="item">
-      <i-card :title="item.name" :extra="item.introduction" i-class="top-padding" thumb="/static/grid/2.png" full>
+      <i-card :title="item.name" :extra="item.introduction" i-class="top-padding" :thumb="item.image" full>
         <view slot="content">{{item.type}}</view>
         <view slot="footer">{{item.address}}</view>
       </i-card>
@@ -72,6 +49,16 @@ export default {
       shops: [],
       show: false,
       year: '2019年4月3号',
+      images1: [
+      {add: '/static/grid/1.png',type:'科技', url:'../content/main?type=sci'},
+      {add: '/static/grid/2.png',type:'法律', url:'../content/main?type=law'},
+      {add: '/static/grid/3.png',type:'自然', url:'../content/main?type=nature'},
+      ],
+      images2: [
+        {add: '/static/grid/4.png',type:'心理',url:'../content/main?type=heart'},
+        {add: '/static/grid/5.png',type:'环境',url:'../content/main?type=env'},
+        {add: '/static/grid/6.png',type:'人性',url:'../content/main?type=person'}
+      ],
       items: ['科技', '法律', '自然', '心理', '环境', '人性']
     }
   },
@@ -81,6 +68,9 @@ export default {
   },
   
   methods: {
+     goList (url) {
+      mpvue.navigateTo({ url })
+    },
     bindViewTap () {
       const url = '../logs/main'
       if (mpvuePlatform === 'wx') {

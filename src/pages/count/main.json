@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "查看启动日志",
+  "navigationBarTitleText": "score",
   "usingComponents": {
     "i-grid": "../../../static/dist/grid/index",
     "i-grid-item": "../../../static/dist/grid-item/index",

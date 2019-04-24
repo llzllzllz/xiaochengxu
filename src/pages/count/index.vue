@@ -1,10 +1,13 @@
 <template>
   <div class="counter-warp">
-    <i-row><i-col span="24" i-class="col-class">Vuex counter：{{ count }}</i-col></i-row>  
+    <image src="/static/images/account.png" class="image"></image>
+    <view class="boxs">
     <i-row>
-    <i-col span="12"><button @click="increment" hover-class="hover">+</button></i-col>
-    <i-col span="12"><button @click="decrement" hover-class="hover">-</button></i-col>
+      <i-col span="24" i-class="col-class">签到次数：{{ count }}</i-col></i-row>  
+    <i-row>
+    <i-col span="24"><button @click="increment" hover-class="hover" type="primary">签到</button></i-col>
     </i-row>  
+    </view>
   </div>
 </template>
 
@@ -31,9 +34,16 @@ export default {
 </script>
 
 <style>
+.boxs {
+  margin-top: 10px;
+}
+.image {
+  width: 50px;
+  height: 50px;
+}
 .counter-warp {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 .home {
   display: inline-block;
@@ -43,11 +53,12 @@ export default {
   border: 1px solid blue;
 }
 .hover {
-  color: aqua;
-  background-color: red;
+  background-color: aquared;
 
 }
 .col-class {
   border: 1px solid #98bf21;
+  height: 30pt;
+  text-align: center;
 }
 </style>

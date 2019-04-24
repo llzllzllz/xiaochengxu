@@ -1,11 +1,15 @@
 <template>
   <div>
-      <swiper v-if="imgUrls.length > 0" indidator-dots="imgUrls.length > 1" >
-      <block v-for="(item, index) in imgUrls" :key="index" >
+      <swiper :indicator-dots="indicatorDots"
+      :autoplay="autoplay"
+      :interval="interval"
+      :duration="duration"
+      style="height:200px">
+        <block v-for="item in imgUrls" :key="item">
         <swiper-item>
-          <image :src="item" mode="scaleToFill"></image>
+          <image :src="item.img"/>
         </swiper-item>
-      </block>
+        </block>
     </swiper>
 
     <ul class="container log-list">
@@ -28,10 +32,14 @@ export default {
   data () {
     return {
       logs: [],
+      indicatorDots: true,
+      autoplay: true,
+      interval: 2000,
+      duration: 500,
       imgUrls: [
-        'http://mss.sankuai.com/v1/mss_51a7233366a4427fa6132a6ce72dbe54/newsPicture/05558951-de60-49fb-b674-dd906c8897a6',
-        'http://mss.sankuai.com/v1/mss_51a7233366a4427fa6132a6ce72dbe54/coursePicture/0fbcfdf7-0040-4692-8f84-78bb21f3395d',
-        'http://mss.sankuai.com/v1/mss_51a7233366a4427fa6132a6ce72dbe54/management-school-picture/7683b32e-4e44-4b2f-9c03-c21f34320870'
+        {img: '/static/logs/1.jpg'},
+        {img: '/static/logs/2.png'},
+        {img: '/static/logs/3.jpg'}
       ]
     }
   },
