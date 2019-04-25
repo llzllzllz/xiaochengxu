@@ -50,14 +50,14 @@ export default {
       show: false,
       year: '2019年4月3号',
       images1: [
-      {add: '/static/grid/1.png',type:'科技', url:'../content/main?type=sci'},
-      {add: '/static/grid/2.png',type:'法律', url:'../content/main?type=law'},
-      {add: '/static/grid/3.png',type:'自然', url:'../content/main?type=nature'},
+      {add: '/static/grid/1.png',type:'科技', url:'../content/main?type=1'},
+      {add: '/static/grid/2.png',type:'法律', url:'../content/main?type=2'},
+      {add: '/static/grid/3.png',type:'自然', url:'../content/main?type=3'},
       ],
       images2: [
-        {add: '/static/grid/4.png',type:'心理',url:'../content/main?type=heart'},
-        {add: '/static/grid/5.png',type:'环境',url:'../content/main?type=env'},
-        {add: '/static/grid/6.png',type:'人性',url:'../content/main?type=person'}
+        {add: '/static/grid/4.png',type:'心理',url:'../content/main?type=4'},
+        {add: '/static/grid/5.png',type:'环境',url:'../content/main?type=5'},
+        {add: '/static/grid/6.png',type:'人性',url:'../content/main?type=6'}
       ],
       items: ['科技', '法律', '自然', '心理', '环境', '人性']
     }
