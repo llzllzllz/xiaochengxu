@@ -12,6 +12,13 @@
     <switch slot="footer" checked />
     </i-cell>
   </i-cell-group> 
+  <i-panel title="发布最新论点">
+      <i-input :value="name" @change="changeName($event)" title="类名" autofocus placeholder="请输入" maxlength="20" />
+      <i-input :value="address" @change="changeAddress($event)" title="主题" placeholder="请输入" maxlength="30" />
+      <i-input :value="reason" @change="changeReason($event)" title="内容" placeholder="请输入" maxlength="50" />
+      <i-input :value="link" @change="changeLink($event)" title="分享链接" placeholder="请输入" maxlength="100" />
+  </i-panel>
+  <i-button @click="handleClick" type="warning" size="default">发布</i-button>
   </div>
 </template>
 
@@ -21,11 +28,10 @@ import card from '@/components/card'
 export default {
   data () {
     return {
-      motto: 'Hello miniprograme',
-      userInfo: {
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png'
-      }
+      name:"",
+      address:"",
+      reason:"",
+      link:""
     }
   },
 
@@ -34,6 +40,34 @@ export default {
   },
 
   methods: {
+    changeName (event) {
+      this.name = event.mp.detail.detail.value
+    },
+    changeReason (event) {
+      this.reason = event.mp.detail.detail.value
+    },
+    changeAddress (event) {
+      this.address = event.mp.detail.detail.value
+    },
+    changeLink (event) {
+      this.address = event.mp.detail.detail.value
+    },
+    handleClick () {
+    if (this.name && this.reason && this.address) {
+        wx.showToast({
+          title: '发布了' + this.name + this.link,
+          icon: 'success',
+          duration: 2000
+        })
+        // TODO:将推荐数据提交到云数据库
+      } else {
+        wx.showToast({
+          title: '信息不完整',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    },
     bindViewTap () {
       const url = '../logs/main'
       if (mpvuePlatform === 'wx') {

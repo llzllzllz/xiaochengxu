@@ -8,11 +8,10 @@
     "pages/map/main"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarTitleText": "WeChat",
-    "navigationBarBackgroundColor": "#000000",
+    "navigationBarBackgroundColor": "#2d8cf0",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#ffffff",
     "enablePullDownRefresh": true
   },
   "tabBar": {

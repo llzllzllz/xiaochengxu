@@ -1,8 +1,5 @@
 [
-    {"id":1,"type":2},
-    {"id":2,"type":2},
-    {"id":3,"type":2},
-    {"id":4,"type":2},
-    {"id":5,"type":2},
-    {"id":5,"type":2}
+    {"id":1,"name":"良品铺子","address":"漫时区","remark":"很多小零食","img":"/static/top/l.png","type":2,"latitude": 30.574935,"longitude": 114.324310},
+    {"id":2,"name":"休闲零食铺子","address":"鑫三飞市场停车场","remark":"种类很多","img":"/static/grids/2.png","type":2,"latitude": 30.585908,"longitude": 114.333000},
+    {"id":3,"name":"老婆最大便利零食","address":"396号福客茂F1","remark":"有打折，有点远","img":"/static/grids/2.png","type":2,"latitude": 30.587164,"longitude": 114.341841}
 ]

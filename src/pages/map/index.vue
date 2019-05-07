@@ -2,6 +2,8 @@
   <div style="width:100%;height: 100%;">
    <map
       id="map"
+      longitude="114.336"
+      latitude="30.5838"
       :scale="scale"
       :controls="controls"
       @controltap="controltap($event)"
@@ -24,8 +26,8 @@ export default {
 
   data () {
     return {
-      type:1,
-      scale:16,
+      type: 1,
+      scale: 14,
       markers: require("@/data/top.json").map((value) => {
         value.label = {}
         value.label.content = value.name
@@ -87,7 +89,7 @@ export default {
           return value
         })
         this.type = this.type + 1;
-        if (this.type == 6) this.type = 1
+        if (this.type == 7) this.type = 1
       }
   }
   },
