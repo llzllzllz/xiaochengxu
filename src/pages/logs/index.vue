@@ -11,6 +11,14 @@
         </swiper-item>
         </block>
     </swiper>
+    <view>
+      <view v-for="item in arr" :key="item">
+      {{index}}:{{item}}
+    </view>
+      <block v-for="item in arr" :key="item">
+      {{index}}:{{item}}
+    </block>
+    </view>
 
     <ul class="container log-list">
       <li v-for="(log, index) in logs" :class="{ red: aa }" :key="index" class="log-item">
@@ -31,6 +39,7 @@ export default {
 
   data () {
     return {
+      arr: ["apple","banana","pear"],
       logs: [],
       indicatorDots: true,
       autoplay: true,

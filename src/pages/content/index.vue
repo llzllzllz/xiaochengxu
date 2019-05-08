@@ -8,6 +8,8 @@
        <p>AI专用芯片</p>
        <p>图神经网络系统</p>
        <p>5G</p>
+       <text selectable>物联网教育及其应用</text>
+       <text decode>股票&nbsp;大跌</text>
       </view>
     </i-panel>
   </div>
