@@ -4,10 +4,12 @@
       :autoplay="autoplay"
       :interval="interval"
       :duration="duration"
-      style="height:200px">
+      :indicator-color="indicatorcolor"
+      :indicator-active-color="activecolor"
+       circular>
         <block v-for="item in imgUrls" :key="item">
         <swiper-item>
-          <image :src="item.img"/>
+          <image :src="item.img"  mode="widthfix"/>
         </swiper-item>
         </block>
     </swiper>
@@ -41,10 +43,12 @@ export default {
     return {
       arr: ["apple","banana","pear"],
       logs: [],
+      indicatorcolor: "blue",
       indicatorDots: true,
       autoplay: true,
       interval: 2000,
       duration: 500,
+      activecolor: "red",
       imgUrls: [
         {img: '/static/logs/1.jpg'},
         {img: '/static/logs/2.png'},
@@ -66,6 +70,10 @@ export default {
 </script>
 
 <style>
+swiper{
+  width: 100%;
+  height:150px;
+}
 .log-list {
   display: flex;
   flex-direction: column;
