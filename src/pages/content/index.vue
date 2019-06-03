@@ -2,12 +2,10 @@
   <div>
     <i-panel title="最新科技">
       <view>
-       <h1></h1>
-       <p>智能城市</p>
-       <p>语音AI</p>
-       <p>AI专用芯片</p>
-       <p>图神经网络系统</p>
-       <p>5G</p>
+        <view  v-for="item in data" :key="item">
+         <view>{{item.text}}</view>
+        </view>
+     
        <text selectable>物联网教育及其应用</text>
        <text decode>股票&nbsp;大跌</text>
        <text decode>股票&nbsp;大跌</text>
