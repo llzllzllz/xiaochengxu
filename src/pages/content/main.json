@@ -4,6 +4,16 @@
         "i-cell-group": "../../../static/dist/cell-group/index",
         "i-cell": "../../../static/dist/cell/index",
         "i-button": "../../../static/dist/button/index",
-        "i-card": "../../../static/dist/card/index"
+        "i-notice-bar": "../../../static/dist/notice-bar/index",
+        "i-card": "../../../static/dist/card/index",
+        "i-grid": "../../../static/dist/grid/index",
+        "i-grid-item": "../../../static/dist/grid-item/index",
+        "i-grid-icon": "../../../static/dist/grid-icon/index",
+        "i-grid-label": "../../../static/dist/grid-label/index",
+        "i-panel": "../../../static/dist/panel/index",
+        "i-action-sheet": "../../../static/dist/action-sheet/index",
+        "i-swipeout": "../../../static/dist/swipeout/index"
+
+
     }
 }

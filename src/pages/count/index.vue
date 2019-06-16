@@ -3,9 +3,9 @@
     <image src="/static/images/account.png" class="image"></image>
     <view class="boxs">
     <i-row>
-      <i-col span="24" i-class="col-class">签到次数：{{ count }}</i-col></i-row>  
+      <i-col span="24" i-class="col-class">签到次数：{{ type }}</i-col></i-row>  
     <i-row>
-    <i-col span="24"><button @click="increment" hover-class="hover" type="primary">签到</button></i-col>
+    <i-col span="24"><button @click="increments" hover-class="hover" type="primary">签到</button></i-col>
     </i-row>  
     </view>
   </div>
@@ -17,6 +17,15 @@ import card from '@/components/card'
 import store from './store'
 
 export default {
+  components: {
+    card
+  },
+
+  data () {
+    return {
+      type: 0
+      }
+  },
   computed: {
     count () {
       return store.state.count
@@ -24,6 +33,23 @@ export default {
   },
 
   methods: {
+    increments () {
+      if (this.type == 0){
+        this.type += 1
+        wx.showToast({
+          title: '签到成功',
+          icon: 'none',
+          duration: 2000
+        })
+        } 
+      else{
+        wx.showToast({
+          title: '已签到',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    },
     increment () {
       store.commit('increment')
     },

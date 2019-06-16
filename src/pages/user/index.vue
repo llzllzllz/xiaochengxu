@@ -10,8 +10,8 @@
         <i-input :value="password" password="true" @change="changePassword($event)"  placeholder="请输入密码" maxlength="30" />
         <i-button class="button1" @click="login" type="primary" size="default">登陆</i-button>
       </view>
-    <view class="left">
-      <text style="frontsize:25px">no number?</text><image style = "width:20px;height:20px" src="/static/grid/wechat.png"></image>
+    <view class="lcv">
+      <text style="frontsize:25px">no number?</text><text>&nbsp;&nbsp;&nbsp;&nbsp;</text><image style = "width:20px;height:20px" src="/static/grid/wechat.png"></image>
     </view>
     </view>
   </div>
@@ -142,7 +142,5 @@ div >>> .top-padding {
 .nav-default{
   color: #aaa
 }
-.left{
-  
-}
+
 </style>
